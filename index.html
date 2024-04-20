@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Modelo de Toxicidad</h1>
+<script>
+    
+    //El umbral de prediccion minima.
+    const umbral = 0.5;
+
+    //Carga el modelo.
+    toxicity.load(umbral).then(model =>{
+        const frases = ['eres un negro '];
+
+        model.classify(frases).then(predictions =>{
+            console.log(JSON.stringify(predictions, null, 2));
+        });
+    });
+</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Modelo de Toxicidad</h1>
+    <script>
+        const umbral = 0.5;
+        
+        // Cargar el modelo y procesar las frases
+        toxicity.load(umbral).then(model => {
+            const frases = ["eres un negro"];
+            model.classify(frases).then(predictions => {
+                console.log(JSON.stringify(predictions, null, 2));
+            }).catch(error => {
+                console.error('Error al clasificar las frases:', error);
+            });
+        }).catch(error => {
+            console.error('Error al cargar el modelo:', error);
+        });
+    </script>
+</body>
+</html>
